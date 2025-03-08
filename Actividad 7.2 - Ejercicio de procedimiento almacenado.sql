@@ -1,6 +1,10 @@
 #Activar la base de datos
 Use proyecto;
 
+#Eliminar tablas
+drop table cuentas;
+drop table transacciones;
+
 #Crear tabla cuentas
 create table cuentas (
 	num_cuenta INT primary key,
@@ -37,6 +41,10 @@ values
     (20010005, "2024/11/23", 256, 0);
 
 #Creacion del procedimiento
+
+delimiter //
+drop procedure sp_new_transaccion;
+
 delimiter //
 create procedure sp_new_transaccion(
 	in p_numcuenta int,
