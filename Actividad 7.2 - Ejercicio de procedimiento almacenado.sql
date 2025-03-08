@@ -1,3 +1,4 @@
+#Activar la base de datos
 Use proyecto;
 
 #Crear tabla cuentas
@@ -55,9 +56,8 @@ begin
     set v_retiro = p_retiro;
 
     #consulta para verificar si la cuenta existe
-    select count(*) into v_cuentaExiste 
-    from cuentas 
-    where num_cuenta = p_numcuenta;
+    select count(*) into v_cuentaExiste from cuentas 
+		where num_cuenta = p_numcuenta;
 
     #condicion por si no existe un numero de cuenta en la tabla de cuentas
     if v_cuentaExiste = 0 then
@@ -106,3 +106,4 @@ call sp_new_transaccion(20010004, 0, 15000 );
 
 select * from cuentas;
 select * from transacciones;
+
